@@ -1,9 +1,81 @@
-$primary-color:#db4c3f;
-$secondary-color:#ffffff;
+$primary-color: #db4c3f;
+$secondary-color: #ffffff;
+$accent-color: #ff653f;
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+@mixin transition-ease {
+    transition: all 0.5s ease-in-out;
+}
+
+@mixin outline {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin horizontalFlex {
+    display: flex;
+    justify-content: center;
+    flex-direction: column
+}
+
+@mixin popup {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+    width: 70%;
+    height: 65vh;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(91, 161, 231),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+@mixin shadow {
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(198, 207, 216),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+}
+
+@mixin inputDate {
+    padding: 0.4rem 1rem;
+    width: 12rem;
+    @include outline();
+    height: 2rem;
+    font-weight: 900;
+}
+
+@mixin input {
+    @include outline();
+    font-weight: 900;
+    height: 1.8rem;
+    width: 40rem;
+    padding: 0 1rem;
+    border-radius: 30px;
+    background-color: $secondary-color;
+    margin-bottom: 20px;
+}
+
+@function setTextColor($color) {
+    @if (lightness($color)>40%) {
+        @return black;
+    }
+
+    @else {
+        @return #fff;
+    }
+}

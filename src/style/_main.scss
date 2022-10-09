@@ -1,0 +1,96 @@
+.popup {
+    @include popup;
+    background-color: $accent-color;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+
+    &__input {
+        grid-column: 1/3;
+
+        .input {
+            @include input;
+            background: none;
+            @include transition-ease;
+            width: 30rem;
+            margin-right: 10px;
+            @include outline;
+        }
+
+        .input:focus {
+            @include shadow;
+        }
+    }
+
+    &__description {
+        grid-row: 2/5;
+        grid-column: 1/2;
+
+
+        .description {
+            @include transition-ease;
+            border-radius: 30px;
+            padding: 1rem 0.8rem;
+            resize: none;
+            @include outline;
+            background-color: #2dd8dbbe;
+        }
+
+        .description:focus {
+            @include shadow;
+        }
+    }
+
+    &__priority {
+        .priority {
+            @include inputDate;
+            @include transition-ease;
+        }
+
+        .priority:focus {
+            @include shadow
+        }
+    }
+
+    &__date {
+        .date {
+            @include inputDate;
+            @include transition-ease;
+        }
+
+        .date:focus {
+            @include shadow;
+        }
+    }
+
+    &__time {
+        .time {
+            @include inputDate;
+            @include transition-ease;
+        }
+
+        .time:focus {
+            @include shadow;
+        }
+    }
+
+    &__addBtn {
+        grid-column: 1/3;
+        grid-row: 5/6;
+
+        .addBtn {
+            width: 8rem;
+            padding: 0.4rem;
+            height: 1.7rem;
+            border-radius: 30px;
+        }
+    }
+}
+
+.open {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}

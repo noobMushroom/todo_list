@@ -20,12 +20,16 @@ function task() {
         const addBtn = () => {
             const add = document.getElementById('addBtn');
             add.addEventListener("click", () => {
+                if (title.value===''){
+                    return
+                }
                 addTask(array,title.value, description.value, priority.value, date.value, time.value);
                 title.value=''
                 description.value=''
                 time.value=''
                 date.value=''
                 priority.value=''
+                popUp.classList.remove("open")
             })
         }
         return addBtn()

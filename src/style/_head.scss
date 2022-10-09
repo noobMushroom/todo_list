@@ -1,0 +1,27 @@
+.head {
+    background-color: $primary-color;
+    @include flex;
+    justify-content: space-between;
+    
+
+    .searchBar {
+        background-color: $secondary-color;
+        width: 35rem;
+        height: 1.6rem;
+        border-radius: 30px;
+        padding: 0 0.5rem;
+        @include flex;
+        justify-self: start;
+    }
+
+    &__search {
+        width: 30rem;
+        height: 1.5rem;
+        margin-left: 0.6rem;
+        @include outline;
+    }
+
+    &__addBtn {
+        @include outline;
+    }
+}
