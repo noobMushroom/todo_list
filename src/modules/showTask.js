@@ -1,5 +1,6 @@
 import delBtn from "./deleteTask";
 import doneBtn from "./done";
+import priority from "./priority";
 
 function showTask() {
     const mainDiv = document.getElementById("tasks")
@@ -11,7 +12,8 @@ function showTask() {
             mainDiv.appendChild(task)
             createDiv(task,element.title, element.description, element.priority, element.date, element.time)
             delBtn.createDeleteBtn(task,element, arr)
-            doneBtn(task, element, arr)
+            doneBtn(task, element, arr);
+            priority.setColor(element, task)
         });
     }
     return { displayTask }
