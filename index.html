@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo app</title>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="head">
+    <div class="menuBtn">
+      <span class="menuBtn__burger"></span>
+    </div>
+    <label for="search">search</label>
+    <input type="text" id="search" class="head__search" name="search">
+    <button id="addBtn" class="head__addBtn">i will add sign later</button>
+
+  </header>
+  <main>
+    <div class="popup">
+      <div class="popup__input">
+        <label for="title">Enter the title</label>
+        <input type="text" class="input" name="title" id="title">
+      </div>
+      <div class="popup__description">
+        <label for="description">description</label>
+        <input type="text" class="description" name="description" id="description">
+      </div>
+      <div class="popup__priority">
+        <label for="priority"></label>
+        <select name="priority" id="priority">
+          <option value="none" disabled>Select an Option</option>
+          <option value="unimportant">unimportant</option>
+          <option value="medium">medium</option>
+          <option value="important">important</option>
+          <option value="super-important">if i don't do this i wll die</option>
+          <option value="daily">daily</option>
+        </select>
+      </div>
+      <div class="popup__date">
+        <label for="date">date</label>
+        <input type="date" name="date" id="date">
+      </div>
+      <div class="popup__time">
+        <label for="time">time</label>
+        <input type="time" name="time" id="time">
+      </div>
+    </div>
+
+    <div class="tasks" id="tasks">
+      
+    </div>
+  </main>
+</body>
+
+</html>
