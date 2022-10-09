@@ -11,49 +11,49 @@
 
 <body>
   <header class="head">
-    <div class="menuBtn">
-      <span class="menuBtn__burger"></span>
+    <div class="searchBar">
+      <label for="search" class="fa-sharp fa-solid fa-magnifying-glass"></label>
+      <input type="text" id="search" class="head__search" name="search">
     </div>
-    <label for="search">search</label>
-    <input type="text" id="search" class="head__search" name="search">
-    <button id="addBtn" class="head__addBtn">i will add sign later</button>
-
+    <!-- <button id="addBtn" class="fa-solid fa-plus fa-2x head__addBtn"></button> -->
+    <button id="popUpBtn" class="fa-solid fa-plus fa-2x head__addBtn"></button>
+    <div class="clock">some watch</div>
+    <div class="calender">some calender</div>
   </header>
   <main>
-    <div class="popup">
-      <div class="popup__input">
-        <label for="title">Enter the title</label>
-        <input type="text" class="input" name="title" id="title">
+    <form>
+      <div class="popup" id="popUp">
+        <div class="popup__input">
+          <input type="text" class="input" name="title" id="title" placeholder="Title" required>
+        </div>
+        <div class="popup__description">
+          <textarea class="description" name="description" id="description" cols="50" rows="10"
+            placeholder="Description"></textarea>
+        </div>
+        <div class="popup__priority">
+          <select name="priority" id="priority" class="priority">
+            <option value="none" disabled>Select an Option</option>
+            <option value="unimportant">unimportant</option>
+            <option value="medium">medium</option>
+            <option value="important">important</option>
+            <option value="super-important">if i don't do this i wll die</option>
+            <option value="daily">daily</option>
+          </select>
+        </div>
+        <div class="popup__date">
+          <input type="date" name="date" id="date" class="date">
+        </div>
+        <div class="popup__time">
+          <input type="time" name="time" id="time" class="time">
+        </div>
+        <div class="popup__addBtn">
+          <button id="addBtn" class="addBtn" type="submit">ADD TASK</button>
+        </div>
       </div>
-      <div class="popup__description">
-        <label for="description">description</label>
-        <input type="text" class="description" name="description" id="description">
-      </div>
-      <div class="popup__priority">
-        <label for="priority"></label>
-        <select name="priority" id="priority">
-          <option value="none" disabled>Select an Option</option>
-          <option value="unimportant">unimportant</option>
-          <option value="medium">medium</option>
-          <option value="important">important</option>
-          <option value="super-important">if i don't do this i wll die</option>
-          <option value="daily">daily</option>
-        </select>
-      </div>
-      <div class="popup__date">
-        <label for="date">date</label>
-        <input type="date" name="date" id="date">
-      </div>
-      <div class="popup__time">
-        <label for="time">time</label>
-        <input type="time" name="time" id="time">
-      </div>
-    </div>
-
-    <div class="tasks" id="tasks">
-      
-    </div>
+    </form>
+    <div class="tasks" id="tasks"></div>
   </main>
+  <script src="https://kit.fontawesome.com/8c4f2e9238.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
