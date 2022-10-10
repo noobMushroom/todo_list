@@ -16,8 +16,8 @@ function showTask() {
             task.appendChild(btns)
             task.appendChild(createDiv(element.title, element.description, element.priority, element.date, element.time))
             doneBtn(btns, element, arr);
+            editBtn.createEditBtn(btns, element , arr)
             delBtn.createDeleteBtn(btns,element, arr);
-            editBtn.createEditBtn(btns, element , task)
             setPriority.setColor(element, task)
         });
     }

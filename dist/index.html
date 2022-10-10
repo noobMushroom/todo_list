@@ -21,10 +21,10 @@
     <div class="calender">some calender</div>
   </header>
   <main>
-    <form>
       <div class="popup" id="popUp">
         <div class="popup__input">
-          <input type="text" class="input" name="title" id="title" placeholder="Title" required>
+          <input type="text" class="input" name="title" id="title" placeholder="Title" required><br>
+          <span id="alert" class="alert"></span>
         </div>
         <div class="popup__description">
           <textarea class="description" name="description" id="description" cols="50" rows="10"
@@ -46,11 +46,10 @@
         <div class="popup__time">
           <input type="time" name="time" id="time" class="time">
         </div>
-        <div class="popup__addBtn" id="popupBtn">
-          <button id="addBtn" class="addBtn" type="submit" name="add">ADD TASK</button>
+        <div class="popup__addBtn" id="popup__addBtn" name="add">
+          <button id="addBtn" class="addBtn">ADD TASK</button>
         </div>
       </div>
-    </form>
     <div class="tasks" id="tasks"></div>
   </main>
   <script src="https://kit.fontawesome.com/8c4f2e9238.js" crossorigin="anonymous"></script>
