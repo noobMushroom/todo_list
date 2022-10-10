@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { formatDistance, nextWednesday, subDays , Interval} from 'date-fns'
 
 import "../style/style.scss";
-import task from './add.js'
+import info from './add.js'
 
 
 function main(){
@@ -16,7 +16,7 @@ const styles=(array)=>{
     const popUp=document.getElementById("popUp");
     popupBtn.addEventListener('click',()=>{
         console.log(popUp)
-        task.info(array)
+        info.addBtn(array)
         popUp.classList.add("open")
     })
 }

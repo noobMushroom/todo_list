@@ -1,6 +1,8 @@
 import showTask from "./showTask";
 import {clear} from './add'
 
+
+// this function create edit button it takes three arguments div to append the edit button and task and array 
 function editBtn() {
     function createEditBtn(div, task, array) {
         const popUp = document.getElementById("popUp");
@@ -16,7 +18,11 @@ function editBtn() {
 }
 
 
+// this function edit's the task and takes two argument task and array 
+
 function editTask(element, array) {
+
+    // grabbing important elements to change their properties and values
     const popUp = document.getElementById("popUp");
     const title = document.getElementById("title");
     const description = document.getElementById('description');
@@ -24,12 +30,12 @@ function editTask(element, array) {
     const date = document.getElementById('date');
     const time = document.getElementById('time');
 
+    // grabbing pop up button div to remove add button and adding edit button
     const pupupBtn = document.getElementById('popup__addBtn')
-
     const add = document.getElementById('addBtn');
     add.remove()
 
-
+    // creating edit button
     const editBtn = document.createElement('button');
     editBtn.classList.add("addBtn")
     editBtn.setAttribute('id', 'editBtn');
@@ -38,13 +44,17 @@ function editTask(element, array) {
 
 
 
+    // setting the initial value to the pop up so the user can edit it 
     title.value = element.title;
     description.value = element.description;
     priority.value = element.priority;
     date.value = element.value;
     time.value = element.time;
 
+
+    // click listener to edit button
     editBtn.addEventListener("click", () => {
+        // removing pop up class
         popUp.classList.remove("open")
         if (title.value === '') {
             title.value = element.title
@@ -75,20 +85,24 @@ function editTask(element, array) {
         } else {
             element.time = time.value;
         }
+
+        //removing edit button and calling display task to show the new array
         const pupupBtn = document.getElementById('popup__addBtn')
         showTask.displayTask(array)
         editBtn.remove()
+
+        // creating add button again
         const addBtn = document.createElement('button');
         addBtn.classList.add("addBtn")
         addBtn.setAttribute('id', 'addBtn');
         addBtn.innerHTML = 'ADD TASK'
         pupupBtn.appendChild(addBtn)
 
+        // finally calling the clear function to clear the input divs
         clear(title, description, priority, date, time)
         
     })
     
 }
-
 
 export default editBtn()

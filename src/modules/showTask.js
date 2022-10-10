@@ -3,18 +3,29 @@ import doneBtn from "./done";
 import setPriority from "./priority";
 import editBtn from "./editTask";
 
+// this function create task card and shows them on the display
 function showTask() {
+    // main div all the task card will add to this.
     const mainDiv = document.getElementById("tasks")
+    // it displays the card in the display
     function displayTask(arr) {
+        // initially setting mainDiv innerHtml to empty
         mainDiv.innerHTML = ''
+
         arr.forEach(element => {
+            // creating task card
             const task = document.createElement('div');
             task.classList.add('task');
             mainDiv.appendChild(task)
+
+            // creating div for button inside to task card
             const btns=document.createElement('div');
             btns.classList.add('task__btn')
             task.appendChild(btns)
+            // calling created div to append the info in the task card
             task.appendChild(createDiv(element.title, element.description, element.priority, element.date, element.time))
+
+            // creating different buttons in each card
             doneBtn(btns, element, arr);
             editBtn.createEditBtn(btns, element , arr)
             delBtn.createDeleteBtn(btns,element, arr);
@@ -24,6 +35,8 @@ function showTask() {
     return { displayTask }
 }
 
+
+// this function create divs and write information in them 
 function createDiv(title, description, priority, date, time) {
     const taskInfo=document.createElement('div')
     taskInfo.classList.add("task__taskInfo");
