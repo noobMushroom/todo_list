@@ -1,10 +1,10 @@
 import { deleteTask } from "./deleteTask";
 
-function doneBtn(div, task , array){
-    const btn=document.createElement('button');
-    btn.innerHTML='DONE';
+function doneBtn(div, task, array) {
+    const btn = document.createElement('button');
+    btn.classList.add("doneBtn", "fa-sharp", "fa-solid", "fa-circle-check")
     div.appendChild(btn);
-    btn.addEventListener('click', ()=>{
+    btn.addEventListener('click', () => {
         deleteTask(task, array)
     })
 }

@@ -1,3 +1,29 @@
-// .tasks{
-//     margin-top: 5rem;
-// }
+.task{
+    display:  flex;
+    width: 80%;
+    margin:1rem auto;
+    border-radius: 15px;
+
+
+    &__btn{
+        @include horizontalFlex;
+        padding: 1rem;
+        
+        .delBtn{
+           @include taskBtn;
+        }
+
+        .editBtn{
+            @include taskBtn;
+        }
+
+        .doneBtn{
+            @include taskBtn;
+        }
+    }
+
+    &__taskInfo{
+        padding: 1rem;
+    }
+}
+

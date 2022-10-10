@@ -70,6 +70,12 @@ $accent-color: #ff653f;
     margin-bottom: 20px;
 }
 
+@mixin taskBtn{
+    margin: 0.5rem 0;
+    @include outline;
+    font-size: 40px;
+}
+
 @function setTextColor($color) {
     @if (lightness($color)>40%) {
         @return black;

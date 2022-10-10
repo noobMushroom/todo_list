@@ -2,7 +2,7 @@ import showTask from "./showTask";
 function delBtn() {
     function createDeleteBtn(div, task, array) {
         const delBtn = document.createElement('button');
-        delBtn.classList.add("task__delBtn", "fa-solid", "fa-trash", "fa-1x");
+        delBtn.classList.add("delBtn", "fa-solid", "fa-trash", "fa-1x");
         div.appendChild(delBtn);
         // delBtn.innerHTML = 'DELETE';
         delBtn.addEventListener('click', () => {

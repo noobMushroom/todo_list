@@ -1,4 +1,4 @@
-function priority() {
+function setPriority() {
     function setColor(element ,div) {
         console.log(element.priority)
         switch (element.priority) {
@@ -24,4 +24,4 @@ function priority() {
 
 }
 
-export default priority();
+export default setPriority();
