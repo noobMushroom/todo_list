@@ -3,13 +3,14 @@ import showTask from "./showTask"
 
 // this function creates object
 
-function createTask(title, description, priority, date, time) {
+function createTask(title, description, priority, date, time, done) {
     let task = {}
     task.title = title
     task.description = description
     task.priority = priority
     task.date = date
     task.time = time
+    task.done=done
     return task;
 }
 
@@ -31,10 +32,16 @@ function info() {
     const addBtn = (array) => {
         const add = document.getElementById('addBtn');
         add.addEventListener("click", () => {
+            const today=new Date()
+            let newDAte= new Date(date.value)
             if (title.value === '') {
                 return
             }
-            addTask(array, title.value, description.value, priority.value, date.value, time.value);
+            if (date.value==='' || newDAte<today){
+                alert("enter a valid date")
+                return
+            }
+            addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
             clear(title, description, priority, date, time)
             showTask.displayTask(array)
         })

@@ -1,19 +1,37 @@
-//  this function will calculate day and time how many and days are left to someone to finish their task
+// this week
 
-//? i don't know how to do it 
+import { addDays, differenceInDays, formatDistance, subDays } from "date-fns"
+import showTask from "./showTask"
 
-import { format } from 'date-fns';
 
-function dateCalc (task){
-    const {format} = require('date-fns');
-    //today's date
-    const today =format(new Date(),'dd.MM.yyyy');
-    console.log(today)
+function week(arr) {
+    let thisWeek = []
+    const today = new Date()
+    arr.forEach(task => {
+        let newDate = new Date(task.date);
+        const distance = differenceInDays(newDate, today);
+        if (distance >= 0 && distance <= 7) {
+            thisWeek.push(task)
+        }
 
-    if (today>= task.date){
-        console.log("you are over due")
-    }
+    })
+    showTask.displayTask(thisWeek)
 
 }
 
-export default dateCalc()
+
+function today(arr) {
+    let todayArray = []
+    const today = new Date()
+    arr.forEach(task => {
+        let newDate = new Date(task.date);
+        const distance = differenceInDays(newDate, today);
+        if (distance === 0) {
+            todayArray.push(task)
+        }
+    })
+    showTask.displayTask(todayArray)
+}
+
+
+export { today , week}
