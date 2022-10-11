@@ -12,4 +12,10 @@ function doneBtn(div, task, array) {
     })
 }
 
+
+function checkDoneTask(arr){
+    let doneTask= arr.filter(task=task.done==='done');
+    
+}
+
 export default doneBtn

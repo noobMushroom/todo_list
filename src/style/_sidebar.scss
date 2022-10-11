@@ -1,0 +1,119 @@
+.container {
+    display: flex
+}
+
+.tasks {
+    margin: 0 1rem;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.sidebarButton {
+    padding: 0.3rem;
+    @include outline;
+}
+
+.sidebar {
+    flex-shrink: 0;
+    border-right: 1px solid black;
+    background-color: aqua;
+    width: 5rem;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - $header-height);
+    overflow: hidden;
+    transition: width $animation-duration $animation-timing-curve;
+    position: sticky;
+    left: 0%;
+    top: $header-height;
+
+
+    &__hidden-sidebar {
+        opacity: 0;
+        white-space: nowrap;
+        margin-left: 1.5rem;
+        transition: opacity $animation-duration $animation-timing-curve;
+
+
+    }
+
+    .top-sidebar {
+        width: 100%;  
+        display: flex;
+        flex-direction: column;
+        padding: .5rem 0;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        .sidebar__hidden-sidebar{
+                text-align: center;
+                font-weight: 900;
+                margin-left: 0;
+                font-size: 30px;
+            }
+    }
+
+    .middle-sidebar {
+        overflow-x: hidden;
+        flex-grow: 1;
+        padding: 0.25rem 0;
+        width: 100%;
+
+        .sidebar-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            list-style: none;
+
+
+            .sidebar-list-item {
+                width: 100%;
+                margin: 10px 0;
+
+                .list_btns {
+                    @include outline;
+                    display: flex;
+                    align-items: center;
+                    padding: 0.8rem 0;
+                    width: 100%;
+                    padding-left: 1.6rem;
+
+
+                    &:hover {
+                        background-color: gray;
+                    }
+
+                    .list-item {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+
+                .active {
+                    background-color: blue;
+                }
+            }
+        }
+    }
+
+}
+
+.open-sidebar {
+    width: 250px;
+
+
+    .list_btns {
+        justify-content: start;
+        background-color: green;
+    }
+
+    .sidebar__hidden-sidebar {
+        opacity: 1;
+        justify-content: start;
+    }
+}
