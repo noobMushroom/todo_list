@@ -11,16 +11,66 @@
 
 <body>
   <header class="head">
+
+    <button class="sidebarButton" data-menu-icon-btn><img src="../src/images/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    </button>
+
     <div class="searchBar">
-      <label for="search" class="fa-sharp fa-solid fa-magnifying-glass"></label>
+      <label for="search" class="searchButton"><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+          <path
+            d="M39.8 41.95 26.65 28.8q-1.5 1.3-3.5 2.025-2 .725-4.25.725-5.4 0-9.15-3.75T6 18.75q0-5.3 3.75-9.05 3.75-3.75 9.1-3.75 5.3 0 9.025 3.75 3.725 3.75 3.725 9.05 0 2.15-.7 4.15-.7 2-2.1 3.75L42 39.75Zm-20.95-13.4q4.05 0 6.9-2.875Q28.6 22.8 28.6 18.75t-2.85-6.925Q22.9 8.95 18.85 8.95q-4.1 0-6.975 2.875T9 18.75q0 4.05 2.875 6.925t6.975 2.875Z" />
+        </svg></label>
       <input type="text" id="search" class="head__search" name="search">
     </div>
     <!-- <button id="addBtn" class="fa-solid fa-plus fa-2x head__addBtn"></button> -->
-    <button id="popUpBtn" class="fa-solid fa-plus fa-2x head__addBtn"></button>
+
     <div class="clock">some watch</div>
     <div class="calender">some calender</div>
   </header>
-  <main>
+  <div class="container">
+    <aside class="sidebar " data-sidebar>
+      <div class="top-sidebar">
+        <button id="popUpBtn" class="head__addBtn">
+          <img src="../src/images/add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+        </button>
+        <div class="sidebar__hidden-sidebar">ADD TASK</div>
+      </div>
+      <div class="middle-sidebar">
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item ">
+            <button class="list_btns active ">
+              <img class="list-item" src="../src/images/inbox-svgrepo-com.svg" alt="">
+              <div class="sidebar__hidden-sidebar">INBOX</div>
+            </button>
+
+          </li>
+          <li class="sidebar-list-item">
+            <button class="list_btns"><img class="list-item" src="../src/images/stars_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+              <div class="sidebar__hidden-sidebar">IMPORTANT</div>
+            </button>
+          </li>
+          <li class="sidebar-list-item">
+            <button class="list_btns">
+              <img class="list-item" src="../src/images/folder_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+              <div class="sidebar__hidden-sidebar">FOLDERS</div>
+            </button>
+          </li>
+          <li class="sidebar-list-item">
+            <button class="list_btns">
+              <img class="list-item" src="../src/images/today_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+              <div class="sidebar__hidden-sidebar">TODAY</div>
+            </button>
+          </li>
+          <li class="sidebar-list-item">
+            <button class="list_btns">
+              <img class="list-item" src="../src/images/date_range_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+              <div class="sidebar__hidden-sidebar">THIS WEEK</div>
+            </button>
+          </li>
+        </ul>
+      </div>         
+    </aside>
+    <main>
       <div class="popup" id="popUp">
         <div class="popup__input">
           <input type="text" class="input" name="title" id="title" placeholder="Title" required><br>
@@ -50,8 +100,9 @@
           <button id="addBtn" class="addBtn">ADD TASK</button>
         </div>
       </div>
-    <div class="tasks" id="tasks"></div>
-  </main>
+      <div class="tasks" id="tasks"></div>
+    </main>
+  </div>
   <script src="https://kit.fontawesome.com/8c4f2e9238.js" crossorigin="anonymous"></script>
 </body>
 
