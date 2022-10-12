@@ -1,0 +1,62 @@
+.folder {
+    @include popup;
+    background-color: $carmine;
+    @include horizontalFlex;
+    justify-content: space-around;
+    padding: 1.5rem;
+
+    &__input {
+        .input {
+            text-align: center;
+            @include input;
+            background: none;
+            @include transition-ease;
+            width: 30rem;
+            height: 5rem;
+            margin-right: 10px;
+            @include outline;
+            font-size: 40px;
+        }
+        .input:focus {
+            @include shadow;
+        }
+    }
+
+    &__description{
+        .description {
+            text-align: center;
+            @include transition-ease;
+            border-radius: 30px;
+            padding: 1rem 0.8rem;
+            resize: none;
+            @include outline;
+            background-color: #2dd8dbbe;
+        }
+
+        .description:focus {
+            @include shadow;
+        }
+    }
+
+    .addBtn {
+        @include outline;
+        background-color: $secondary-color;
+        cursor: pointer;
+        width: 8rem;
+        padding: 0.4rem;
+        height: 1.7rem;
+        border-radius: 30px;
+    }
+}
+
+.open-folder {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+
+.folderCardDiv{
+    border: 3px solid black;
+}

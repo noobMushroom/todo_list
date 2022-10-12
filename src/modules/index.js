@@ -10,6 +10,8 @@ import { checkDoneTask } from './done.js'
 import {week, today } from './date';
 import showTask from './showTask';
 
+import {createFolders} from './folders';
+
 function main() {
     let tasks = []
     styles(tasks)
@@ -43,19 +45,17 @@ function display(arr) {
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             buttons.forEach(button => button.classList.remove('active'))
-
+            button.classList.add('active')
             if (button.name === 'completed') {
                 checkDoneTask(arr)
-                button.classList.add('active')
             } else if (button.name === 'week') {
                 week(arr)
-                button.classList.add('active')
             } else if (button.name === 'today') {
                 today(arr)
-                button.classList.add('active')
             }else if(button.name==='home'){
                 showTask.displayTask(arr)
-                button.classList.add('active')
+            }else if(button.name==='folder'){
+                createFolders()
             }
         })
     })
