@@ -10,12 +10,13 @@ import { checkDoneTask } from './done.js'
 import {week, today } from './date';
 import showTask from './showTask';
 
-import {createFolders} from './folders';
+import {folders} from './folders';
 
 function main() {
+    let folderArray=[]
     let tasks = []
     styles(tasks)
-    display(tasks)
+    display(tasks, folderArray)
 
 }
 
@@ -39,8 +40,7 @@ menuIconButton.addEventListener("click", () => {
 main()
 
 
-
-function display(arr) {
+function display(arr, foldersArray) {
     const buttons = document.querySelectorAll('.list_btns');
     buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -55,7 +55,7 @@ function display(arr) {
             }else if(button.name==='home'){
                 showTask.displayTask(arr)
             }else if(button.name==='folder'){
-                createFolders()
+               folders(foldersArray)
             }
         })
     })
