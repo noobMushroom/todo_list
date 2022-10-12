@@ -23,13 +23,17 @@ function showTask() {
             btns.classList.add('task__btn')
             task.appendChild(btns)
             // calling created div to append the info in the task card
-            task.appendChild(createDiv(element.title, element.description, element.priority, element.date, element.time))
+            task.appendChild(createDiv(element.title, element.description, element.priority, element.date, element.time, element.done))
 
             // creating different buttons in each card
-            doneBtn(btns, element, arr);
+            doneBtn(btns, element, arr, task);
             editBtn.createEditBtn(btns, element , arr)
             delBtn.createDeleteBtn(btns,element, arr);
             setPriority.setColor(element, task)
+
+            if (element.done==='done'){
+                task.style.background="#a9c0cb"
+            }
         });
     }
     return { displayTask }
@@ -37,7 +41,7 @@ function showTask() {
 
 
 // this function create divs and write information in them 
-function createDiv(title, description, priority, date, time) {
+function createDiv(title, description, priority, date, time ,task) {
     const taskInfo=document.createElement('div')
     taskInfo.classList.add("task__taskInfo");
     const taskTitle = document.createElement('div');
@@ -58,11 +62,17 @@ function createDiv(title, description, priority, date, time) {
     taskInfo.appendChild(taskTime);
 
     // showing information in the display
-    taskTitle.innerHTML = `<h1>${title}</h1>`;
+    // taskTitle.innerHTML = `<h1>${title}</h1>`;
     taskDescription.innerHTML = description;
     taskPriority.innerHTML = priority;
     taskDate.innerHTML = date;
     taskTime.innerHTML = time;
+
+    if (task==''){
+        taskTitle.innerHTML = `<h1>${title}</h1>`;
+    }else if (task=='done'){
+        taskTitle.innerHTML = `<s>${title}</s>`;
+    }
 
     return taskInfo
 }

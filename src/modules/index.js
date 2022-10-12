@@ -8,6 +8,7 @@ import info from './add.js'
 
 import { checkDoneTask } from './done.js'
 import {week, today } from './date';
+import showTask from './showTask';
 
 function main() {
     let tasks = []
@@ -20,7 +21,6 @@ const styles = (array) => {
     const popupBtn = document.getElementById("popUpBtn");
     const popUp = document.getElementById("popUp");
     popupBtn.addEventListener('click', () => {
-        console.log(popUp)
         info.addBtn(array)
         popUp.classList.add("open")
     })
@@ -52,6 +52,9 @@ function display(arr) {
                 button.classList.add('active')
             } else if (button.name === 'today') {
                 today(arr)
+                button.classList.add('active')
+            }else if(button.name==='home'){
+                showTask.displayTask(arr)
                 button.classList.add('active')
             }
         })

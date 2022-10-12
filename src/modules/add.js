@@ -1,4 +1,5 @@
 import showTask from "./showTask"
+import {differenceInDays} from 'date-fns'
 
 
 // this function creates object
@@ -34,10 +35,11 @@ function info() {
         add.addEventListener("click", () => {
             const today=new Date()
             let newDAte= new Date(date.value)
+            const distance = differenceInDays(newDAte, today);
             if (title.value === '') {
                 return
             }
-            if (date.value==='' || newDAte<today){
+            if (date.value==='' || distance<0){
                 alert("enter a valid date")
                 return
             }
