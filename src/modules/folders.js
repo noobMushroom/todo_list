@@ -6,8 +6,7 @@ import info from './add.js'
 
 
 
-function folders(folders){
-    console.log("this is folders", folders)
+function folders(folders) {
     createAddFolderBtn()
     addFolderBtn(folders)
     displayFolder(folders)
@@ -41,7 +40,7 @@ function handle(folders) {
         if (arrayName.value === '') {
             return
         }
-        let newFolder = createFolder(arrayName.value, arrayDescription.value)
+        let newFolder = new createFolder(arrayName.value, arrayDescription.value, [])
         folders.push(newFolder);
         displayFolder(folders)
         arrayName.value = ''
@@ -52,12 +51,10 @@ function handle(folders) {
 
 
 // this function creates folders
-function createFolder(title, description) {
-    let folder={}
-    folder.title = title
-    folder.description = description;
-    folder.array = []
-    return folder
+function createFolder(title, description,array) {
+    this.title=title
+    this.description=description
+    this.array=array;
 }
 
 
@@ -89,7 +86,9 @@ function displayFolder(arr) {
         editBtn.createEditBtn(folderBtn, folder, arr)
         delBtn.createDeleteBtn(folderBtn, folder, arr);
 
-        handleFolder(folderDiv, folder)
+        folderDiv.addEventListener('click', () => {
+            handleFolder(folder)
+        })
     })
 }
 
@@ -122,16 +121,13 @@ function createFolderDiv(arr, title, description) {
 
 }
 
-
 // when click on any folder it will call show task to display the array inside it 
 
-function handleFolder(element, folder) {
-    element.addEventListener('click', () => {
-        console.log(folder.array)
-        showTask.displayTask(folder.array)
-        createAddTaskBtn()
-        addTask(folder.array)
-    })
+function handleFolder(folder) {
+    showTask.displayTask(folder.array)
+    createAddTaskBtn()
+    addTask(folder)
+
 }
 
 // when user will click on any folder add folder button will be gone and normal add button will come back
@@ -156,9 +152,9 @@ function addTask(folder) {
     addBtn.addEventListener('click', () => {
         popUp.classList.add("open")
         console.log("this is from ", folder)
-        info.addBtn(folder)
+        info.addBtn(folder.array)
     })
 }
 
 // export { displayFolder, addFolderBtn, createAddFolderBtn}
-export {folders}
+export { folders ,createAddFolderBtn}
