@@ -78,7 +78,7 @@ function displayFolder(arr) {
         folderBtn.classList.add('folder__btn')
         folderDiv.appendChild(folderBtn)
 
-        folderDiv.appendChild(createFolderDiv(folder.arr, folder.title, folder.description))
+        folderDiv.appendChild(createFolderDiv(folder, folder.title, folder.description))
 
         editBtn.createEditBtn(folderBtn, folder, arr)
         delBtn.createDeleteBtn(folderBtn, folder, arr);
