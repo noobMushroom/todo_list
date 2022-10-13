@@ -13,7 +13,6 @@ function createTask(title, description, priority, date, time, done) {
     this.done = done
 }
 
-// this function push object to the main array and it clears it
 
 function addTask(array, ...title) {
     console.log('this array is from add task ', array)
