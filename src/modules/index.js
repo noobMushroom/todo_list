@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { formatDistance, nextWednesday, subDays, Interval, getDate, addDays } from 'date-fns'
 import "../style/style.scss";
 import {info} from './add.js'
 import { checkDoneTask } from './done.js'
@@ -8,8 +7,9 @@ import showTask from './showTask';
 import { folders } from './folders';
 
 function main() {
-    let folderArray = []
-    let tasks = []
+    let folderArray = JSON.parse(localStorage.getItem("folders")) || []
+    let tasks = JSON.parse(localStorage.getItem("array")) || []
+    showTask.displayTask(tasks)
     styles(tasks)
     display(tasks, folderArray)
     menu()
@@ -43,8 +43,7 @@ main()
 
 function menu(){
     const menuIconButton = document.querySelector("[data-menu-icon-btn]")
-    const sidebar = document.querySelector("[data-sidebar]")
-    
+    const sidebar = document.querySelector("[data-sidebar]")  
     menuIconButton.addEventListener("click", () => {
         sidebar.classList.toggle("open-sidebar")
     })
@@ -53,7 +52,7 @@ function menu(){
 
 
 
-function display(tasks, foldersArray) {
+function display(tasks, folderArray) {
     const buttons = document.querySelectorAll('.list_btns');
     buttons.forEach(button => {
         button.addEventListener('click', () => {
@@ -69,7 +68,7 @@ function display(tasks, foldersArray) {
             } else if (button.name === 'home') {
                 showTask.displayTask(tasks)
             } else if (button.name === 'folder') {
-                folders(foldersArray)
+                folders(folderArray)
             }
         })
     })

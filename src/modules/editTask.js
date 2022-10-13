@@ -53,7 +53,8 @@ function editTask(element, array) {
 
 
     // click listener to edit button
-    editBtn.addEventListener("click", () => {
+    editBtn.addEventListener("click", (e) => {
+        e.preventDefault()
         // removing pop up class
         popUp.classList.remove("open")
         if (title.value === '') {

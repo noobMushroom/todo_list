@@ -42,7 +42,8 @@
             </button>
           </li>
           <li class="sidebar-list-item">
-            <button class="list_btns" name="important"><img class="list-item" src="images/stars_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+            <button class="list_btns" name="important"><img class="list-item"
+                src="images/stars_FILL0_wght400_GRAD0_opsz48.svg" alt="">
               <div class="sidebar__hidden-sidebar">IMPORTANT</div>
             </button>
           </li>
@@ -71,13 +72,12 @@
             </button>
           </li>
         </ul>
-      </div>         
+      </div>
     </aside>
     <main>
-      <div class="popup" id="popUp">
+      <form class="popup" id="popUp">
         <div class="popup__input">
           <input type="text" class="input" name="title" id="title" placeholder="Title" required><br>
-          <span id="alert" class="alert"></span>
         </div>
         <div class="popup__description">
           <textarea class="description" name="description" id="description" cols="50" rows="10"
@@ -94,16 +94,17 @@
           </select>
         </div>
         <div class="popup__date">
-          <input type="date" name="date" id="date" class="date">
+          <input type="date" name="date" id="date" class="date" required>
         </div>
         <div class="popup__time">
           <input type="time" name="time" id="time" class="time">
         </div>
         <div class="popup__addBtn" id="popup__addBtn" name="add">
           <button id="cancelBtn" class="addBtn">CANCEL</button>
-          <button id="addBtn" class="addBtn">ADD TASK</button>
+          <button type="submit" id="addBtn" class="addBtn">ADD TASK</button>
         </div>
-      </div>
+      </form>
+
       <div class="folder" id="folder-popup">
         <div class="folder__input">
           <input type="text" class="input" name="folder-title" id="folder-title" placeholder="Title" required>

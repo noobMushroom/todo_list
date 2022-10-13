@@ -1,6 +1,5 @@
 import delBtn from "./deleteTask";
 import editBtn from "./editTask";
-
 import showTask from "./showTask";
 import { info } from './add.js'
 
@@ -25,7 +24,7 @@ function createAddFolderBtn() {
     mainDiv.appendChild(addFolderText)
 }
 
-// this is the button inside folder pop and when it click it calls handle to grab the information and push it in the array
+// this is the button inside folder pop up and when it click it calls handle to grab the information and push it in the array
 function addFolderBtn(array) {
     const folderPopupBtn = document.getElementById('popupFolderBtn')
     const folderPopup = document.getElementById('folder-popup')
@@ -45,8 +44,9 @@ function handle(folders) {
         if (arrayName.value === '') {
             return
         }
-        let newFolder = new CreateFolder(arrayName.value, arrayDescription.value, [])
+        let newFolder = createFolder(arrayName.value, arrayDescription.value)
         folders.push(newFolder);
+        localStorage.setItem("folders", JSON.stringify(folders));
         displayFolder(folders)
         clear(arrayName, arrayDescription)
     })
@@ -66,12 +66,15 @@ function cancelBtn(...args){
     })
 }
 
-// this function creates folders
-class CreateFolder {
-    constructor(title, description, array) {
-        this.title = title
-        this.description = description
-        this.array = array;
+
+
+// creating functions. 
+function createFolder(title, description){
+    const array=[]
+    return {
+        array,
+        title,
+        description,
     }
 }
 
@@ -88,7 +91,7 @@ function displayFolder(arr) {
         folderBtn.classList.add('folder__btn')
         folderDiv.appendChild(folderBtn)
 
-        folderDiv.appendChild(createFolderDiv(folder, folder.title, folder.description))
+        folderDiv.appendChild(createFolderDiv(folder.array, folder.title, folder.description))
 
         editBtn.createEditBtn(folderBtn, folder, arr)
         delBtn.createDeleteBtn(folderBtn, folder, arr);
@@ -120,7 +123,7 @@ function createFolderDiv(arr, title, description) {
 
     titleDiv.innerHTML = `<h1>${title}</h1>`
     descriptionDiv.innerHTML = description
-    numberOfTask.innerHTML = `Number of Task: ${arr}`
+    numberOfTask.innerHTML = `Number of Task: ${arr.length}`
 
     return folderInfo
 
@@ -143,9 +146,10 @@ function createAddBtn() {
 
 // when click on any folder it will call show task to display the array inside it 
 function handleFolder(folder) {
+    console.log(folder)
     showTask.displayTask(folder.array)
     createAddBtn() //creating add button again to add task inside the folder
-    addTask(folder)
+    addTask(folder.array)
 }
 
 // this call show info which push things in the array which we give from here. 
@@ -154,11 +158,7 @@ function addTask(folder) {
     const addBtn = document.getElementById("AddTaskInFolder");
     addBtn.addEventListener('click', () => {
         popUp.classList.add("open")
-        info(folder.array)
+        info(folder)
     })
 }
-
-
-
-// export { displayFolder, addFolderBtn, createAddFolderBtn}
 export { folders }

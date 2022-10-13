@@ -15,9 +15,9 @@ function createTask(title, description, priority, date, time, done) {
 
 
 function addTask(array, ...title) {
-    console.log('this array is from add task ', array)
     let newTask = new createTask(...title)
     array.push(newTask)
+    localStorage.setItem("array", JSON.stringify(array));
 }
 
 
@@ -30,20 +30,19 @@ function info(array) {
     const time = document.getElementById('time');
     const add = document.getElementById('addBtn');
     cancelBtn()
-    add.addEventListener("click", () => {
+    add.addEventListener("click", (e) => {
+        e.preventDefault()
         const today = new Date()
         let newDAte = new Date(date.value)
         const distance = differenceInDays(newDAte, today);
         if (title.value === '') {
             return
         }
-        if (date.value === '' || distance < 0) {
-            alert("enter a valid date")
+        if (date.value == '' || distance < 0) {
             return
         }
         addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
         clear()
-        // clear(title, description, priority, date, time)
         showTask.displayTask(array)
     })
 };
@@ -68,4 +67,3 @@ function cancelBtn(){
 
 
 export {info}
-
