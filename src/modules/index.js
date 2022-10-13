@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { formatDistance, nextWednesday, subDays, Interval, getDate, addDays } from 'date-fns'
 import "../style/style.scss";
-import info from './add.js'
+import {info} from './add.js'
 import { checkDoneTask } from './done.js'
 import { week, today } from './date';
 import showTask from './showTask';
@@ -15,7 +15,7 @@ function main() {
     menu()
 
 }
-export function createAddBtn(array) {
+function createAddBtn(array) {
     const mainDiv = document.querySelector(".top-sidebar");
     mainDiv.innerHTML = ''
     const btn = document.createElement('button');
@@ -34,7 +34,7 @@ const styles = (array) => {
     const popupBtn = document.getElementById("popUpBtn");
     const popUp = document.getElementById("popUp");
     popupBtn.addEventListener('click', () => {
-        info.addBtn(array)
+        info(array)
         popUp.classList.add("open")
     })
 }
@@ -61,12 +61,16 @@ function display(tasks, foldersArray) {
             button.classList.add('active')
             createAddBtn(tasks)
             if (button.name === 'completed') {
+                // createAddBtn(tasks)
                 checkDoneTask(tasks)
             } else if (button.name === 'week') {
+                createAddBtn(tasks)
                 week(tasks)
             } else if (button.name === 'today') {
+                createAddBtn(tasks)
                 today(tasks)
             } else if (button.name === 'home') {
+                createAddBtn(tasks)
                 showTask.displayTask(tasks)
             } else if (button.name === 'folder') {
                 folders(foldersArray)

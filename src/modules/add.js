@@ -23,33 +23,28 @@ function addTask(array, ...title) {
 
 
 // this function grabs the value from the divs and send them to add task and show task to add on the array and display the array
-function info() {
+function info(array) {
     const title = document.getElementById("title");
     const description = document.getElementById('description');
     const priority = document.getElementById('priority');
     const date = document.getElementById('date');
     const time = document.getElementById('time');
-    const addBtn = (array) => {
-        console.log('this array is from add btn', array)
-        const add = document.getElementById('addBtn');
-        add.addEventListener("click", () => {
-            const today = new Date()
-            let newDAte = new Date(date.value)
-            const distance = differenceInDays(newDAte, today);
-            if (title.value === '') {
-                return
-            }
-            if (date.value === '' || distance < 0) {
-                alert("enter a valid date")
-                return
-            }
-            addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
-            clear(title, description, priority, date, time)
-            showTask.displayTask(array)
-        })
-
-    }
-    return { addBtn }
+    const add = document.getElementById('addBtn');
+    add.addEventListener("click", () => {
+        const today = new Date()
+        let newDAte = new Date(date.value)
+        const distance = differenceInDays(newDAte, today);
+        if (title.value === '') {
+            return
+        }
+        if (date.value === '' || distance < 0) {
+            alert("enter a valid date")
+            return
+        }
+        addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
+        clear(title, description, priority, date, time)
+        showTask.displayTask(array)
+    })
 };
 
 // this function clear all the value from divs
@@ -63,5 +58,5 @@ export function clear(...args) {
 }
 
 
-export default info()
+export {info}
 
