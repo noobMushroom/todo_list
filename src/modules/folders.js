@@ -2,7 +2,7 @@ import delBtn from "./deleteTask";
 import editBtn from "./editTask";
 
 import showTask from "./showTask";
-import {info} from './add.js'
+import { info } from './add.js'
 
 function folders(folders) {
     createAddFolderBtn()
@@ -36,22 +36,33 @@ function addFolderBtn(array) {
 }
 
 // this function grab the value and then push them into the folders array
-function handle(folders) {
-    const folderPopup = document.getElementById('folder-popup')
+function handle(folders) {  
     const arrayName = document.getElementById("folder-title")
     const arrayDescription = document.getElementById("folder-description")
     const addFolder = document.getElementById("addFolderBtn")
+    cancelBtn(arrayName, arrayDescription)
     addFolder.addEventListener('click', () => {
-
         if (arrayName.value === '') {
             return
         }
         let newFolder = new CreateFolder(arrayName.value, arrayDescription.value, [])
         folders.push(newFolder);
         displayFolder(folders)
-        arrayName.value = ''
-        arrayDescription.value = ''
-        folderPopup.classList.remove("open-folder")
+        clear(arrayName, arrayDescription)
+    })
+}
+
+function clear(arrayName, arrayDescription) {
+    const folderPopup = document.getElementById('folder-popup')
+    arrayName.value = ''
+    arrayDescription.value = ''
+    folderPopup.classList.remove("open-folder")
+}
+
+function cancelBtn(...args){
+    const cancel=document.getElementById('cancelFolderBtn')
+    cancel.addEventListener('click', ()=>{
+        clear(...args)
     })
 }
 

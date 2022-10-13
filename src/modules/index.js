@@ -61,16 +61,12 @@ function display(tasks, foldersArray) {
             button.classList.add('active')
             createAddBtn(tasks)
             if (button.name === 'completed') {
-                // createAddBtn(tasks)
                 checkDoneTask(tasks)
             } else if (button.name === 'week') {
-                createAddBtn(tasks)
                 week(tasks)
             } else if (button.name === 'today') {
-                createAddBtn(tasks)
                 today(tasks)
             } else if (button.name === 'home') {
-                createAddBtn(tasks)
                 showTask.displayTask(tasks)
             } else if (button.name === 'folder') {
                 folders(foldersArray)

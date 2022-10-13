@@ -30,6 +30,7 @@ function info(array) {
     const date = document.getElementById('date');
     const time = document.getElementById('time');
     const add = document.getElementById('addBtn');
+    cancelBtn()
     add.addEventListener("click", () => {
         const today = new Date()
         let newDAte = new Date(date.value)
@@ -42,19 +43,28 @@ function info(array) {
             return
         }
         addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
-        clear(title, description, priority, date, time)
+        clear()
+        // clear(title, description, priority, date, time)
         showTask.displayTask(array)
     })
 };
 
 // this function clear all the value from divs
-export function clear(...args) {
+export function clear() {
     title.value = ''
     description.value = ''
     time.value = ''
     date.value = ''
     priority.value = "important"
     popUp.classList.remove("open")
+}
+
+
+function cancelBtn(){
+    const cancelBtn=document.getElementById('cancelBtn')
+    cancelBtn.addEventListener('click', ()=>{
+        clear()
+    })
 }
 
 
