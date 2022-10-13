@@ -11,13 +11,9 @@ function week(arr) {
     const today = new Date()
     const startweek= startOfWeek(today)
     const endWeek=endOfWeek(today)
-    console.log(endWeek)
-    console.log(startweek)
     arr.forEach(task => {
         let newDate = new Date(task.date);
-        const distance = differenceInDays(newDate, today);
         if (isAfter(newDate, startweek) && isBefore(newDate, endWeek)) {
-            console.log("shit this is working")
             thisWeek.push(task)
         }
     })
@@ -33,7 +29,6 @@ function today(arr) {
     arr.forEach(task => {
         let newDate = new Date(task.date);
         const distance = differenceInCalendarDays(newDate, today);
-        console.log(distance)
         if (distance === 0) {
             todayArray.push(task)
         }

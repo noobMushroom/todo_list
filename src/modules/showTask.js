@@ -11,7 +11,6 @@ function showTask() {
     function displayTask(arr) {
         // initially setting mainDiv innerHtml to empty
         mainDiv.innerHTML = ''
-        console.log(arr)
         arr.forEach(element => {
             // creating task card
             const task = document.createElement('div');

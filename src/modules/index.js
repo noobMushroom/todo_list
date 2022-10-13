@@ -1,15 +1,10 @@
 import _ from 'lodash';
 import { formatDistance, nextWednesday, subDays, Interval, getDate, addDays } from 'date-fns'
-
-
 import "../style/style.scss";
 import info from './add.js'
-
-
 import { checkDoneTask } from './done.js'
 import { week, today } from './date';
 import showTask from './showTask';
-
 import { folders } from './folders';
 
 function main() {
@@ -19,9 +14,6 @@ function main() {
     display(tasks, folderArray)
 
 }
-
-
-
 
 export function createAddBtn(array) {
     const mainDiv = document.querySelector(".top-sidebar");
@@ -46,7 +38,7 @@ const styles = (array) => {
         popUp.classList.add("open")
     })
 }
-
+//todo put it in a function.
 const menuIconButton = document.querySelector("[data-menu-icon-btn]")
 const sidebar = document.querySelector("[data-sidebar]")
 
@@ -54,7 +46,7 @@ menuIconButton.addEventListener("click", () => {
     sidebar.classList.toggle("open-sidebar")
 })
 
-main()
+
 
 
 function display(tasks, foldersArray) {
@@ -73,10 +65,10 @@ function display(tasks, foldersArray) {
             } else if (button.name === 'home') {
                 showTask.displayTask(tasks)
             } else if (button.name === 'folder') {
-                console.log('this if from display', foldersArray)
                 folders(foldersArray)
             }
         })
     })
 }
 
+main()

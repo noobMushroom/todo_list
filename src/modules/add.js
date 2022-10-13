@@ -1,24 +1,23 @@
 import showTask from "./showTask"
-import {differenceInDays} from 'date-fns'
+import { differenceInDays } from 'date-fns'
 
 
 // this function creates object
 
 function createTask(title, description, priority, date, time, done) {
-    let task = {}
-    task.title = title
-    task.description = description
-    task.priority = priority
-    task.date = date
-    task.time = time
-    task.done=done
-    return task;
+    this.title = title
+    this.description = description
+    this.priority = priority
+    this.date = date
+    this.time = time
+    this.done = done
 }
 
 // this function push object to the main array
 
 function addTask(array, ...title) {
-    let newTask = createTask(...title)
+    console.log('this array is from add task ', array)
+    let newTask = new createTask(...title)
     array.push(newTask)
 }
 
@@ -31,15 +30,16 @@ function info() {
     const date = document.getElementById('date');
     const time = document.getElementById('time');
     const addBtn = (array) => {
+        console.log('this array is from add btn', array)
         const add = document.getElementById('addBtn');
         add.addEventListener("click", () => {
-            const today=new Date()
-            let newDAte= new Date(date.value)
+            const today = new Date()
+            let newDAte = new Date(date.value)
             const distance = differenceInDays(newDAte, today);
             if (title.value === '') {
                 return
             }
-            if (date.value==='' || distance<0){
+            if (date.value === '' || distance < 0) {
                 alert("enter a valid date")
                 return
             }
@@ -49,7 +49,7 @@ function info() {
         })
 
     }
-    return {addBtn}
+    return { addBtn }
 };
 
 // this function clear all the value from divs

@@ -2,7 +2,6 @@
 // this is a simple function it sets the background according to the priority
 function setPriority() {
     function setColor(element ,div) {
-        console.log(element.priority)
         switch (element.priority) {
             case "unimportant":
                 div.style.background = 'grey';
