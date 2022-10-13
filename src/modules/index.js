@@ -12,6 +12,7 @@ function main() {
     let tasks = []
     styles(tasks)
     display(tasks, folderArray)
+    menu()
 
 }
 export function createAddBtn(array) {
@@ -40,13 +41,14 @@ const styles = (array) => {
 main()
 
 
-//todo put it in a function.
-const menuIconButton = document.querySelector("[data-menu-icon-btn]")
-const sidebar = document.querySelector("[data-sidebar]")
-
-menuIconButton.addEventListener("click", () => {
-    sidebar.classList.toggle("open-sidebar")
-})
+function menu(){
+    const menuIconButton = document.querySelector("[data-menu-icon-btn]")
+    const sidebar = document.querySelector("[data-sidebar]")
+    
+    menuIconButton.addEventListener("click", () => {
+        sidebar.classList.toggle("open-sidebar")
+    })
+}
 
 
 
