@@ -117,10 +117,9 @@ function createFolderDiv(arr, title, description) {
 }
 
 // when click on any folder it will call show task to display the array inside it 
-
 function handleFolder(folder) {
     showTask.displayTask(folder.array)
-    createAddBtn()
+    createAddBtn() //creating add button again to add task inside the folder
     addTask(folder)
 }
 
