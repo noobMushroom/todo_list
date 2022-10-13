@@ -14,7 +14,6 @@ function main() {
     display(tasks, folderArray)
 
 }
-
 export function createAddBtn(array) {
     const mainDiv = document.querySelector(".top-sidebar");
     mainDiv.innerHTML = ''
@@ -38,6 +37,9 @@ const styles = (array) => {
         popUp.classList.add("open")
     })
 }
+main()
+
+
 //todo put it in a function.
 const menuIconButton = document.querySelector("[data-menu-icon-btn]")
 const sidebar = document.querySelector("[data-sidebar]")
@@ -71,4 +73,3 @@ function display(tasks, foldersArray) {
     })
 }
 
-main()
