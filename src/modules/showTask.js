@@ -6,8 +6,8 @@ import editBtn from "./editTask";
 // this function create task card and shows them on the display
 function showTask() {
     // main div all the task card will add to this.
-    const mainDiv = document.getElementById("tasks")
     // it displays the card in the display
+    const mainDiv = document.getElementById("tasks")
     function displayTask(arr) {
         // initially setting mainDiv innerHtml to empty
         mainDiv.innerHTML = ''
@@ -27,7 +27,7 @@ function showTask() {
             // creating different buttons in each card
             doneBtn(btns, element, arr, task);
             editBtn.createEditBtn(btns, element , arr)
-            delBtn(btns,element, arr,'task');
+            delBtn(btns,element, arr);
             setPriority.setColor(element, task)
 
             if (element.done==='done'){

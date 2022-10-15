@@ -49,6 +49,9 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 1rem;
+        .head__addBtn{
+            cursor: pointer;
+        }
         .sidebar__hidden-sidebar{
                 text-align: center;
                 font-weight: 900;
@@ -78,9 +81,10 @@
                     @include outline;
                     display: flex;
                     align-items: center;
-                    padding: 0.8rem 0;
+                    padding: 1rem 0;
                     width: 100%;
                     padding-left: 1.6rem;
+                    cursor: pointer;
 
 
                     &:hover {

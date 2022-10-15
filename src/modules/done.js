@@ -24,7 +24,7 @@ function doneBtn(div, task, array, mainDiv) {
 function checkDoneTask(arr){
     let doneTask= arr.filter(task=>task.done=='done');
     showTask.displayTask(doneTask)
-    // localStorage.setItem("array", JSON.stringify(arr));
+    localStorage.setItem("array", JSON.stringify(arr));
 }
 
 export default doneBtn

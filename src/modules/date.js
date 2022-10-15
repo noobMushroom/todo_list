@@ -1,8 +1,7 @@
 // this week
 
-import { differenceInDays, compareAsc, compareDesc, subDays, startOfWeek, endOfWeek, isAfter, isBefore } from "date-fns"
+import { startOfWeek, endOfWeek, isAfter, isBefore } from "date-fns"
 import { differenceInCalendarDays } from "date-fns/fp"
-import { difference } from "lodash"
 import showTask from "./showTask"
 
 
@@ -17,8 +16,7 @@ function week(arr) {
             thisWeek.push(task)
         }
     })
-    // showTask.displayTask(thisWeek)
-    sortArray(thisWeek)
+    showTask.displayTask(thisWeek)
 
 }
 
@@ -36,14 +34,4 @@ function today(arr) {
     showTask.displayTask(todayArray)
 }
 
-
-//todo array .map()
-function sortArray(arr){
-    const sortedDates=arr.sort(compareAsc);
-    arr.forEach(task=>{
-        task.date
-    })
-
-    showTask.displayTask(sortedDates)
-}
 export { today , week}

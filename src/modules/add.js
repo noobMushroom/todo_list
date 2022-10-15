@@ -17,7 +17,7 @@ function createTask(title, description, priority, date, time, done) {
 function addTask(array, ...title) {
     let newTask = new createTask(...title)
     array.push(newTask)
-    // localStorage.setItem('array', JSON.stringify(array));//todo
+    localStorage.setItem('array', JSON.stringify(array));//todo
 }
 
 
@@ -29,6 +29,9 @@ function info(array) {
     const date = document.getElementById('date');
     const time = document.getElementById('time');
     const add = document.getElementById('addBtn');
+    const dateWarning=document.getElementById("date-warning")
+    const nameWarning=document.getElementById('input-warning')
+    const timeWarning=document.getElementById('time-warning')
     cancelBtn()
     add.addEventListener("click", (e) => {
         e.preventDefault()
@@ -36,10 +39,20 @@ function info(array) {
         let newDAte = new Date(date.value)
         const distance = differenceInDays(newDAte, today);
         if (title.value === '') {
+            nameWarning.innerHTML="Name Required"
             return
         }
-        if (date.value == '' || distance < 0) {
+        if (date.value == '') {
+            dateWarning.innerHTML="Date Required"
             return
+        }else if (distance < 0){
+            dateWarning.innerHTML="Input a correct date"
+            return
+        }
+
+        if (time.value===''){
+            timeWarning.innerHTML='Time required'
+            return 
         }
         addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
         clear()
@@ -49,11 +62,23 @@ function info(array) {
 
 // this function clear all the value from divs
 export function clear() {
+    const title = document.getElementById("title");
+    const description = document.getElementById('description');
+    const priority = document.getElementById('priority');
+    const date = document.getElementById('date');
+    const time = document.getElementById('time');
+    const add = document.getElementById('addBtn');
+    const dateWarning=document.getElementById("date-warning")
+    const nameWarning=document.getElementById('input-warning')
+    const timeWarning=document.getElementById('time-warning')
     title.value = ''
     description.value = ''
     time.value = ''
     date.value = ''
-    priority.value = "important"
+    priority.value = "medium"
+    nameWarning.innerHTML=''
+    timeWarning.innerHTML=''
+    dateWarning.innerHTML=''
     popUp.classList.remove("open")
 }
 
