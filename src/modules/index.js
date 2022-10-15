@@ -4,11 +4,13 @@ import {info} from './add.js'
 import { checkDoneTask } from './done.js'
 import { week, today } from './date';
 import showTask from './showTask';
-import { folders } from './folders';
+import { folder } from './folders';
 
 function main() {
-    let folderArray = JSON.parse(localStorage.getItem("folders")) || []
-    let tasks = JSON.parse(localStorage.getItem("array")) || []
+    let folderArray =  []
+    let tasks =[]
+    // let folderArray = JSON.parse(localStorage.getItem("folders")) || []
+    // let tasks = JSON.parse(localStorage.getItem("array")) || []
     showTask.displayTask(tasks)
     styles(tasks)
     display(tasks, folderArray)
@@ -34,7 +36,7 @@ const styles = (array) => {
     const popupBtn = document.getElementById("popUpBtn");
     const popUp = document.getElementById("popUp");
     popupBtn.addEventListener('click', () => {
-        info(array)
+        info(array, 'array')
         popUp.classList.add("open")
     })
 }
@@ -68,9 +70,8 @@ function display(tasks, folderArray) {
             } else if (button.name === 'home') {
                 showTask.displayTask(tasks)
             } else if (button.name === 'folder') {
-                folders(folderArray)
+                folder(folderArray)
             }
         })
     })
 }
-

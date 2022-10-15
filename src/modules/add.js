@@ -17,7 +17,7 @@ function createTask(title, description, priority, date, time, done) {
 function addTask(array, ...title) {
     let newTask = new createTask(...title)
     array.push(newTask)
-    localStorage.setItem("array", JSON.stringify(array));
+    // localStorage.setItem('array', JSON.stringify(array));//todo
 }
 
 

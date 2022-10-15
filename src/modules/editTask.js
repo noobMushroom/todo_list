@@ -101,6 +101,7 @@ function editTask(element, array) {
 
         // finally calling the clear function to clear the input divs
         clear(title, description, priority, date, time)
+        localStorage.setItem("array", JSON.stringify(array));
         
     })
     

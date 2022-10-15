@@ -1,9 +1,9 @@
-import delBtn from "./deleteTask";
+import { delBtn } from "./deleteTask";
 import editBtn from "./editTask";
 import showTask from "./showTask";
 import { info } from './add.js'
 
-function folders(folders) {
+function folder(folders) {
     createAddFolderBtn()
     addFolderBtn(folders)
     displayFolder(folders)
@@ -27,15 +27,15 @@ function createAddFolderBtn() {
 // this is the button inside folder pop up and when it click it calls handle to grab the information and push it in the array
 function addFolderBtn(array) {
     const folderPopupBtn = document.getElementById('popupFolderBtn')
-    const folderPopup = document.getElementById('folder-popup')
+    const popup = document.getElementById('folder-popup')
     folderPopupBtn.addEventListener('click', () => {
-        handle(array)
-        folderPopup.classList.add('open-folder');
+        folderInfo(array)
+        popup.classList.add('open-folder');
     })
 }
 
 // this function grab the value and then push them into the folders array
-function handle(folders) {  
+function folderInfo(folders) {
     const arrayName = document.getElementById("folder-title")
     const arrayDescription = document.getElementById("folder-description")
     const addFolder = document.getElementById("addFolderBtn")
@@ -46,7 +46,7 @@ function handle(folders) {
         }
         let newFolder = createFolder(arrayName.value, arrayDescription.value)
         folders.push(newFolder);
-        localStorage.setItem("folders", JSON.stringify(folders));
+        // localStorage.setItem("folders", JSON.stringify(folders));
         displayFolder(folders)
         clear(arrayName, arrayDescription)
     })
@@ -59,20 +59,19 @@ function clear(arrayName, arrayDescription) {
     folderPopup.classList.remove("open-folder")
 }
 
-function cancelBtn(...args){
-    const cancel=document.getElementById('cancelFolderBtn')
-    cancel.addEventListener('click', ()=>{
+function cancelBtn(...args) {
+    const cancel = document.getElementById('cancelFolderBtn')
+    cancel.addEventListener('click', () => {
         clear(...args)
     })
 }
 
-
-
 // creating functions. 
-function createFolder(title, description){
-    const array=[]
+function createFolder(title, description) {
+    let folderTasks =[];
+    localStorage.setItem("folders", JSON.stringify(folderTasks));
     return {
-        array,
+        folderTasks,
         title,
         description,
     }
@@ -85,35 +84,42 @@ function displayFolder(arr) {
     arr.forEach(folder => {
         const folderDiv = document.createElement('div');
         folderDiv.classList.add('folderCardDiv');
+        folderDiv.setAttribute('id', `${folder.title}`)
         mainDiv.appendChild(folderDiv)
 
         const folderBtn = document.createElement('div');
         folderBtn.classList.add('folder__btn')
         folderDiv.appendChild(folderBtn)
 
-        folderDiv.appendChild(createFolderDiv(folder.array, folder.title, folder.description))
+        folderDiv.appendChild(createFolderDiv(folder.folderTasks, folder.title, folder.description))
 
         editBtn.createEditBtn(folderBtn, folder, arr)
-        delBtn.createDeleteBtn(folderBtn, folder, arr);
+        delBtn(folderBtn, folder, arr, 'folder', 'folders');
+        handleFolderClick(arr)// calling folder Arrays
+    })
+}
 
-        folderDiv.addEventListener('click', () => {
-            handleFolder(folder)
+
+// this function works when users click on the folder. it will call the handle folder which will show tasks inside the folder
+function handleFolderClick(array) {
+    const folders=document.querySelectorAll(".folderCardDiv")
+    folders.forEach(folder => {
+        folder.addEventListener("click", () => {
+            const arr = array.find(array => array.title == folder.id)
+            handleFolder(arr.folderTasks)
         })
     })
 }
 
+
+
 // this function creates important divs to show folders in the display
 function createFolderDiv(arr, title, description) {
     const folderInfo = document.createElement('div')
-
-
     const titleDiv = document.createElement('div');
     titleDiv.classList.add('folder_name_div');
-
-
     const descriptionDiv = document.createElement('div');
     descriptionDiv.classList.add('folder_description_div')
-
     const numberOfTask = document.createElement('div');
     numberOfTask.classList.add("numberOfTask")
 
@@ -126,10 +132,7 @@ function createFolderDiv(arr, title, description) {
     numberOfTask.innerHTML = `Number of Task: ${arr.length}`
 
     return folderInfo
-
 }
-
-
 function createAddBtn() {
     const mainDiv = document.querySelector(".top-sidebar");
     mainDiv.innerHTML = ''
@@ -146,10 +149,9 @@ function createAddBtn() {
 
 // when click on any folder it will call show task to display the array inside it 
 function handleFolder(folder) {
-    console.log(folder)
-    showTask.displayTask(folder.array)
+    showTask.displayTask(folder)
     createAddBtn() //creating add button again to add task inside the folder
-    addTask(folder.array)
+    addTask(folder)
 }
 
 // this call show info which push things in the array which we give from here. 
@@ -158,7 +160,8 @@ function addTask(folder) {
     const addBtn = document.getElementById("AddTaskInFolder");
     addBtn.addEventListener('click', () => {
         popUp.classList.add("open")
-        info(folder)
+        info(folder, 'folders')
     })
 }
-export { folders }
+
+export { folder, displayFolder }

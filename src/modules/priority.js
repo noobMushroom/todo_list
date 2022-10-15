@@ -20,7 +20,6 @@ function setPriority() {
                 break
         }
     }
-
     return {setColor}
 
 }

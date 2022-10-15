@@ -1,4 +1,4 @@
-import delBtn from "./deleteTask";
+import {delBtn} from "./deleteTask";
 import doneBtn from "./done";
 import setPriority from "./priority";
 import editBtn from "./editTask";
@@ -27,7 +27,7 @@ function showTask() {
             // creating different buttons in each card
             doneBtn(btns, element, arr, task);
             editBtn.createEditBtn(btns, element , arr)
-            delBtn.createDeleteBtn(btns,element, arr);
+            delBtn(btns,element, arr,'task');
             setPriority.setColor(element, task)
 
             if (element.done==='done'){

@@ -16,12 +16,15 @@ function doneBtn(div, task, array, mainDiv) {
             showTask.displayTask(array)
         }
     })
+    localStorage.setItem("array", JSON.stringify(array));
+
 }
 
 
 function checkDoneTask(arr){
     let doneTask= arr.filter(task=>task.done=='done');
     showTask.displayTask(doneTask)
+    // localStorage.setItem("array", JSON.stringify(arr));
 }
 
 export default doneBtn
