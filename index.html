@@ -15,9 +15,12 @@
     <button class="sidebarButton" data-menu-icon-btn><img src="images/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
     </button>
 
-
-    <div class="clock">some watch</div>
-    <div class="calender">some calender</div>
+    <div class="search">
+      <input type="text" id="searchBar" placeholder="task name">
+      <button id="searchBtn" >search</button>
+    </div>
+    <div class="clock" id="clock">some watch</div>
+    <div class="calender" id="calender">some calender</div>
   </header>
   <div class="container">
     <aside class="sidebar " data-sidebar>
@@ -30,7 +33,7 @@
       <div class="middle-sidebar">
         <ul class="sidebar-list">
           <li class="sidebar-list-item ">
-            <button class="list_btns active" name="home">
+            <button class="list_btns active" id="home" name="home">
               <img class="list-item" src="images/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
               <div class="sidebar__hidden-sidebar">HOME</div>
             </button>
@@ -45,12 +48,6 @@
             <button class="list_btns" name="important"><img class="list-item"
                 src="images/stars_FILL0_wght400_GRAD0_opsz48.svg" alt="">
               <div class="sidebar__hidden-sidebar">IMPORTANT</div>
-            </button>
-          </li>
-          <li class="sidebar-list-item">
-            <button class="list_btns" name="folder">
-              <img class="list-item" src="images/folder_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-              <div class="sidebar__hidden-sidebar">FOLDERS</div>
             </button>
           </li>
           <li class="sidebar-list-item">
@@ -78,6 +75,7 @@
       <form class="popup" id="popUp">
         <div class="popup__input">
           <input type="text" class="input" name="title" id="title" placeholder="Title" required><br>
+          <span id="input-warning" class="warning"></span>
         </div>
         <div class="popup__description">
           <textarea class="description" name="description" id="description" cols="50" rows="10"
@@ -85,9 +83,8 @@
         </div>
         <div class="popup__priority">
           <select name="priority" id="priority" class="priority">
-            <option value="none" disabled>Select an Option</option>
             <option value="unimportant">unimportant</option>
-            <option value="medium">medium</option>
+            <option value="medium" default>medium</option>
             <option value="important">important</option>
             <option value="super-important">if i don't do this i wll die</option>
             <option value="daily">daily</option>
@@ -95,29 +92,19 @@
         </div>
         <div class="popup__date">
           <input type="date" name="date" id="date" class="date" required>
+          <br>
+          <span id="date-warning" class="warning"></span>
         </div>
         <div class="popup__time">
           <input type="time" name="time" id="time" class="time">
+          <br>
+          <span id="time-warning" class="warning"></span>
         </div>
         <div class="popup__addBtn" id="popup__addBtn" name="add">
           <button id="cancelBtn" class="addBtn">CANCEL</button>
           <button type="submit" id="addBtn" class="addBtn">ADD TASK</button>
         </div>
       </form>
-
-      <div class="folder" id="folder-popup">
-        <div class="folder__input">
-          <input type="text" class="input" name="folder-title" id="folder-title" placeholder="Title" required>
-        </div>
-        <div class="folder__description">
-          <textarea class="description" name="folder-description" id="folder-description" cols="50" rows="10"
-            placeholder="Description"></textarea>
-        </div>
-        <div class="folder_add-button">
-          <button class="addBtn" id="cancelFolderBtn">CANCEL</button>
-          <button class="addBtn" id="addFolderBtn">ADD FOLDER</button>
-        </div>
-      </div>
 
       <div class="tasks" id="tasks"></div>
     </main>
