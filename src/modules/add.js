@@ -85,7 +85,8 @@ export function clear() {
 
 function cancelBtn(){
     const cancelBtn=document.getElementById('cancelBtn')
-    cancelBtn.addEventListener('click', ()=>{
+    cancelBtn.addEventListener('click', (e)=>{
+        e.preventDefault()
         clear()
     })
 }

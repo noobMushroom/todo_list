@@ -108,5 +108,6 @@
 .open {
     visibility: visible;
     top: 50%;
+    // top: calc(50% - $taskHeight);
     transform: translate(-50%, -50%) scale(1);
 }

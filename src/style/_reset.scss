@@ -5,7 +5,7 @@ $carmine:#960019ec;
 $header-height: 9vh;
 $animation-duration: 250ms;
 $animation-timing-curve: ease-in-out;
-
+$taskHeight:100%;
 
 
 * {
@@ -36,7 +36,7 @@ $animation-timing-curve: ease-in-out;
 }
 
 @mixin popup {
-    position: absolute;
+    position: fixed;
     top: 0%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.1);
