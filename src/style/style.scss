@@ -4,30 +4,26 @@
 @import './tasks';
 @import './sidebar';
 body{
-    background-color: $secondary-color;
-    color: setTextColor($primary-color);
     height: 100vh;
+    margin: 0;
+    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
-
 }
 
 h1, h2, h3{
     font-weight: 400;
 }
 
-.head{
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background-color: $primary-color;
-    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .4);
-    padding: 0 .5rem;
-    height: $header-height;
-  }
-
 main{
     height: 100%;
     width: 100%;
+}
+
+.tasks{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

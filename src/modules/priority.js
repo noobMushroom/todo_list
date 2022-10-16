@@ -4,19 +4,19 @@ function setPriority() {
     function setColor(element ,div) {
         switch (element.priority) {
             case "unimportant":
-                div.style.background = 'grey';
+                div.style.background = '#10b981';
                 break
             case "medium":
-                div.style.background = 'green';
+                div.style.background = '#1e40af';
                 break
             case "important":
-                div.style.background = "blue";
+                div.style.background = "#FFBF00";
                 break
             case "super-important":
-                div.style.background = "red";
+                div.style.background = "#D21404";
                 break
             case "daily":
-                div.style.background = 'pink'
+                div.style.background = '#155e75'
                 break
         }
     }

@@ -1,4 +1,4 @@
-import showTask from "./showTask";
+import { doneTask } from "./done";
 
 // this function creates the delete button
 function delBtn(div, task, array) {
@@ -18,7 +18,7 @@ function deleteTask(task, array) {
     if (index > -1) {
         array.splice(index, 1);
     }
-    showTask.displayTask(array);
+    doneTask(array);
     localStorage.setItem("array", JSON.stringify(array));
 
 }

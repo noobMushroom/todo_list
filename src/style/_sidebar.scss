@@ -18,7 +18,7 @@
 .sidebar {
     flex-shrink: 0;
     border-right: 1px solid black;
-    background-color: aqua;
+    background-color: #86efac;
     width: 5rem;
     padding-top: 1rem;
     display: flex;
@@ -42,22 +42,28 @@
     }
 
     .top-sidebar {
-        width: 100%;  
+        width: 100%;
         display: flex;
         flex-direction: column;
         padding: .5rem 0;
         align-items: center;
         justify-content: center;
-        margin-bottom: 1rem;
-        .head__addBtn{
+        margin-bottom: 0.5rem;
+
+        .head__addBtn {
             cursor: pointer;
-        }
-        .sidebar__hidden-sidebar{
-                text-align: center;
-                font-weight: 900;
-                margin-left: 0;
-                font-size: 30px;
+            img{
+                width: 4rem;
             }
+        }
+
+        .sidebar__hidden-sidebar {
+            color: black;
+            text-align: center;
+            font-weight: 900;
+            margin-left: 0;
+            font-size: 30px;
+        }
     }
 
     .middle-sidebar {
@@ -88,7 +94,7 @@
 
 
                     &:hover {
-                        background-color: gray;
+                        background-color: #0ea4e9c7;
                     }
 
                     .list-item {
@@ -98,7 +104,7 @@
                 }
 
                 .active {
-                    background-color: blue;
+                    background-color: #22c55e;
                 }
             }
         }

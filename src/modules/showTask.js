@@ -43,6 +43,13 @@ function showTask() {
 function createDiv(title, description, priority, date, time ,task) {
     const taskInfo=document.createElement('div')
     taskInfo.classList.add("task__taskInfo");
+    const dateTimeDiv=document.createElement('div');
+    dateTimeDiv.classList.add("dateTime");
+
+
+    const infoDiv=document.createElement("div");
+    infoDiv.classList.add('infoDiv')
+    
     const taskTitle = document.createElement('div');
     taskTitle.classList.add('title');
     const taskDescription = document.createElement('div');
@@ -54,12 +61,13 @@ function createDiv(title, description, priority, date, time ,task) {
     const taskTime = document.createElement('div');
     taskTime.classList.add('time');
 
-    taskInfo.appendChild(taskTitle);
-    taskInfo.appendChild(taskDescription);
-    taskInfo.appendChild(taskPriority);
-    taskInfo.appendChild(taskDate);
-    taskInfo.appendChild(taskTime);
-
+    infoDiv.appendChild(taskTitle);
+    infoDiv.appendChild(taskPriority);
+    infoDiv.appendChild(taskDescription);
+    dateTimeDiv.appendChild(taskTime);
+    dateTimeDiv.appendChild(taskDate);
+    taskInfo.appendChild(infoDiv)
+    taskInfo.appendChild(dateTimeDiv)
     // showing information in the display
     // taskTitle.innerHTML = `<h1>${title}</h1>`;
     taskDescription.innerHTML = description;

@@ -1,5 +1,5 @@
-import showTask from "./showTask";
 import {clear} from './add'
+import { doneTask } from "./done";
 
 
 // this function create edit button it takes three arguments div to append the edit button and task and array 
@@ -89,7 +89,7 @@ function editTask(element, array) {
 
         //removing edit button and calling display task to show the new array
         const pupupBtn = document.getElementById('popup__addBtn')
-        showTask.displayTask(array)
+        doneTask(array)
         editBtn.remove()
 
         // creating add button again

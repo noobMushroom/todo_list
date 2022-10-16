@@ -1,16 +1,15 @@
 import _ from 'lodash';
 import "../style/style.scss";
 import { info } from './add.js'
-import { checkDoneTask } from './done.js'
+import { checkDoneTask, doneTask } from './done.js'
 import { week, today } from './date';
-import showTask from './showTask';
 import time from './time';
 import sort from './sort';
 import search from './search';
 
 function main() {
-    let tasks = JSON.parse(localStorage.getItem("array")) || []
-    showTask.displayTask(tasks)
+    let tasks = JSON.parse(localStorage.getItem("array")) || [];
+    doneTask(tasks)
     styles(tasks)
     display(tasks)
     menu()
@@ -45,13 +44,20 @@ function menu() {
     })
 }
 
-
+function checkTime(i) {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  }
 function startTime() {
     setTimeout(startTime, 500)
     let today = new Date(),
         h = today.getHours(),
         m = today.getMinutes(),
         s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
     let clock = document.getElementById('clock')
     clock.innerHTML = h + ":" + m + ":" + s;
 }
@@ -59,10 +65,10 @@ startTime()
 
 function date() {
     setTimeout(date, 500)
-    const calender=document.getElementById('calender')
+    const calender = document.getElementById('calender')
     const { format } = require('date-fns');
     const today = format(new Date(), 'do  MMMM yyyy');
-    calender.innerHTML=today
+    calender.innerHTML = today
 }
 date()
 
@@ -79,7 +85,7 @@ function display(tasks) {
             } else if (button.name === 'today') {
                 today(tasks)
             } else if (button.name === 'home') {
-                showTask.displayTask(tasks)
+                doneTask(tasks)
             } else if (button.name === 'inbox') {
                 time(tasks)
             } else if (button.name === 'important') {

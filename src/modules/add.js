@@ -1,5 +1,5 @@
-import showTask from "./showTask"
 import { differenceInDays } from 'date-fns'
+import { doneTask } from "./done"
 
 
 // this function creates object
@@ -56,7 +56,7 @@ function info(array) {
         }
         addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
         clear()
-        showTask.displayTask(array)
+        doneTask(array)
     })
 };
 

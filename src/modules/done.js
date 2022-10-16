@@ -27,5 +27,11 @@ function checkDoneTask(arr){
     localStorage.setItem("array", JSON.stringify(arr));
 }
 
+function doneTask(array){
+    let newArr=array.filter(task=>task.done=='');
+    showTask.displayTask(newArr)
+    localStorage.setItem("array", JSON.stringify(array));
+}
+
 export default doneBtn
-export {checkDoneTask}
+export {checkDoneTask, doneTask}
