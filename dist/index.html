@@ -11,13 +11,11 @@
 
 <body>
   <header class="head">
-
     <button class="sidebarButton" data-menu-icon-btn><img src="images/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
     </button>
-
-    <div class="search">
-      <input type="text" id="searchBar" placeholder="task name">
-      <button id="searchBtn" >search</button>
+    <div class="searchBar">
+      <input type="text" id="searchBar" placeholder="task name" class="search">
+      <button id="searchBtn" class="searchBtn">search</button>
     </div>
     <div class="clock" id="clock">some watch</div>
     <div class="calender" id="calender">some calender</div>
@@ -84,7 +82,7 @@
         <div class="popup__priority">
           <select name="priority" id="priority" class="priority">
             <option value="unimportant">unimportant</option>
-            <option value="medium" default>medium</option>
+            <option value="medium" default selected>medium</option>
             <option value="important">important</option>
             <option value="super-important">if i don't do this i wll die</option>
             <option value="daily">daily</option>
