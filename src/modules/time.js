@@ -7,8 +7,10 @@ export default function time(array){
     let todayArray=[]
     array.forEach(task => {
         let newDate = new Date(task.date);
+        console.log(newDate)   
         const distance = differenceInCalendarDays(newDate, today);
-        if (distance === 0) {
+        console.log(distance)
+        if (distance >= 0) {
             todayArray.push(task)
         }
     })
