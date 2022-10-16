@@ -3,6 +3,7 @@
 import { startOfWeek, endOfWeek, isAfter, isBefore } from "date-fns"
 import { differenceInCalendarDays } from "date-fns/fp"
 import { doneTask } from "./done"
+import showTask from "./showTask"
 
 
 function week(arr) {
@@ -16,7 +17,7 @@ function week(arr) {
             thisWeek.push(task)
         }
     })
-    doneTask(thisWeek)
+    showTask.displayTask(thisWeek)
 
 }
 
@@ -31,7 +32,7 @@ function today(arr) {
             todayArray.push(task)
         }
     })
-    doneTask(todayArray)
+    showTask.displayTask(todayArray)
 }
 
 export { today , week}
