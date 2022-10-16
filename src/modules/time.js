@@ -2,10 +2,9 @@ import { doneTask } from "./done";
 export default function time(array){
     let inbox=[]
     const today=new Date();
-    const time=`${today.getHours()}:${today.getMinutes()}`
-
     array.forEach(element => {
-        if (element.time<=time){
+        let newDate=new Date(element.date)
+        if (newDate<=today){
             inbox.push(element)
         }
     });

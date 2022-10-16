@@ -33,31 +33,58 @@ function info(array) {
     const nameWarning=document.getElementById('input-warning')
     const timeWarning=document.getElementById('time-warning')
     cancelBtn()
-    add.addEventListener("click", (e) => {
+    add.removeEventListener("click", (e) => {
+        console.log('i am working')
         e.preventDefault()
         const today = new Date()
         let newDAte = new Date(date.value)
         const distance = differenceInDays(newDAte, today);
         if (title.value === '') {
-            nameWarning.innerHTML="Name Required"
+            nameWarning.innerHTML="*Name Required"
             return
         }
         if (date.value == '') {
-            dateWarning.innerHTML="Date Required"
+            dateWarning.innerHTML="*Date Required"
             return
         }else if (distance < 0){
-            dateWarning.innerHTML="Input a correct date"
+            dateWarning.innerHTML="*Input a correct date"
             return
         }
 
         if (time.value===''){
-            timeWarning.innerHTML='Time required'
+            timeWarning.innerHTML='*Time required'
             return 
         }
         addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
         clear()
         doneTask(array)
     })
+    add.addEventListener("click", (e) => {
+        e.preventDefault()
+        const today = new Date()
+        let newDAte = new Date(date.value)
+        const distance = differenceInDays(newDAte, today);
+        if (title.value === '') {
+            nameWarning.innerHTML="*Name Required"
+            return
+        }
+        if (date.value == '') {
+            dateWarning.innerHTML="*Date Required"
+            return
+        }else if (distance < 0){
+            dateWarning.innerHTML="*Input a correct date"
+            return
+        }
+
+        if (time.value===''){
+            timeWarning.innerHTML='*Time required'
+            return 
+        }
+        addTask(array, title.value, description.value, priority.value, date.value, time.value, '');
+        clear()
+        doneTask(array)
+    })
+    
 };
 
 // this function clear all the value from divs
