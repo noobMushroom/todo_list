@@ -24,6 +24,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: $header-height;
     height: calc(100vh - $header-height);
     overflow: hidden;
     transition: width $animation-duration $animation-timing-curve;
