@@ -67,7 +67,7 @@ function date() {
     setTimeout(date, 500)
     const calender = document.getElementById('calender')
     const { format } = require('date-fns');
-    const today = format(new Date(), 'do  MMMM yyyy');
+    const today = format(new Date(), 'EEEE MMMM do yyyy');
     calender.innerHTML = today
 }
 date()

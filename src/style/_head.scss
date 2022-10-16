@@ -47,14 +47,15 @@
 
     .clock {
         font-family: "digital";
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 500;
         letter-spacing: 0.1em;
         width: 3.5em;
     }
 
     .calender {
-        width: 9em;
-        @extend .clock
+        font-size: 1rem;
+        font-weight: 500;
+       
     }
 }
